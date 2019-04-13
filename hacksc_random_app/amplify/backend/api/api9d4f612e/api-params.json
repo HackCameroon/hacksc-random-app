@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/items",
+            "lambdaFunction": "hackscrandomappe0af7a52",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "api9d4f612e",
+    "apiName": "api9d4f612e",
+    "functionArns": [
+        {
+            "lambdaFunction": "hackscrandomappe0af7a52"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "hackscrandomapp-20190413103036-authRole",
+        "unAuthRoleName": "hackscrandomapp-20190413103036-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "hackscrandomappe0af7a52",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
