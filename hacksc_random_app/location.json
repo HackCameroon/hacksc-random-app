@@ -1,8 +1,8 @@
 [
 	{
 		"Location": {
-			"Latitude" : "34.041599",
-			"Longitude" : "-118.254943"
+			"Latitude" : 34.041599,
+			"Longitude" : -118.254943
 		},
 		"time": "1234567",
 		"creator": "Yoga",
@@ -10,8 +10,8 @@
 	},
 	{
 		"Location": {
-			"Latitude" : " 34.053464",
-			"Longitude" : "-118.245557"
+			"Latitude" : 34.053464,
+			"Longitude" : -118.245557
 		},
 		"time": "12643567",
 		"creator": "Fan",
@@ -19,8 +19,8 @@
 	},
 	{
 		"Location": {
-			"Latitude" : "34.044976",
-			"Longitude" : "-118.26038"
+			"Latitude" : 34.044976,
+			"Longitude" : -118.26038
 		},
 		"time": "12643567",
 		"creator": "Yixuan",
@@ -28,8 +28,8 @@
 	},
 	{
 		"Location": {
-			"Latitude" : " 34.039485",
-			"Longitude" : " -118.257935"
+			"Latitude" : 34.039485,
+			"Longitude" : -118.257935
 		},
 		"time": "12643567",
 		"creator": "Huichen",
