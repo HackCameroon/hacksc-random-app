@@ -1,7 +1,6 @@
 ## How to run the demo
 
-If you have not yet installed `React Native`:
-> npm install -g react-native-cli
+It is recommended that you have installed `Simulator.app` before starting.
 
 Prepare to run the demo:
 > git clone https://github.com/hacksc-team-of-random-name/hacksc-random-app.git
@@ -10,6 +9,6 @@ Prepare to run the demo:
 > 
 > npm install
 > 
-> react-native eject
-> 
-> react-native run-ios
+> npm start
+
+If you would like to preview on `Simulator`, press key 'i'.
