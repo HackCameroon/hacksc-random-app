@@ -1,6 +1,6 @@
 ## How to run the demo
 
-It is recommended that you have installed `Simulator.app` before starting.
+If you plan to run `Simulator.app` on your Mac for preview, run `open -a Simulator` before starting.
 
 Prepare to run the demo:
 > git clone https://github.com/hacksc-team-of-random-name/hacksc-random-app.git

@@ -11,22 +11,95 @@ import {
 import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
 import styles from '../assets/styles';
+// import { MapView } from 'expo';
+import MapView from 'react-native-maps';
+import { TabNavigator } from "react-navigation";
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
 
+  constructor(props){
+    super(props);
+
+    this.state = {
+      latitude: 30.78825,
+      longitude: -120.4324,
+      error:null,
+    };
+  }
+
+  componentDidMount() {
+    // console.log('didnotmount')
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log("wokeeey");
+        console.log(position);
+        this.setState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          error: null,
+        });
+      },
+      (error) => this.setState({ error: error.message }),
+      { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 },
+    );
+  }
+
   render() {
+    // return(
+    //   <View style={styles.container}>
+    //     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+    //       <Text> {this.state.latitude} </Text>
+    //       <Text> {this.state.longitude} </Text>
+    //       <Text> {this.state.error} </Text>
+    //     </ScrollView>
+    //   </View>
+    // )
+
+    // console.log('render: '+JSON.stringify(this.state))
+
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
+          {/* <View style={styles.welcomeContainer}> */}
+          <View style={{ position: 'relative', height: 600}}>
             <Text>My HackSC App</Text>
+            <MapView
+              style={{ flex:1, left:0, right: 0, top:0, bottom: 0, position: 'absolute' }}
+              initialRegion={{
+                latitude: 37.78825,
+                longitude: -122.4324,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421,
+              }}
+              // initialRegion={{
+              //   latitude: this.state.latitude,
+              //   longitude: this.state.longitude,
+              //   latitudeDelta: 1,
+              //   longitudeDelta: 1,
+              // }}
+              showsUserLocation={true}
+            />
+            <Text>Test Map</Text>
           </View>
         </ScrollView>
       </View>
     )
+    // return (
+    //   <View style={{ position: 'relative', height: 500}}>
+    //     <MapView
+    //       style={{ left:0, right: 0, top:0, bottom: 0, position: 'absolute' }}
+    //       initialRegion={{
+    //         latitude: 37.78825,
+    //         longitude: -122.4324,
+    //         latitudeDelta: 0.0922,
+    //         longitudeDelta: 0.0421,
+    //       }}
+    //     />
+    //   </View>
+    // );
   }
   /*
   render() {
