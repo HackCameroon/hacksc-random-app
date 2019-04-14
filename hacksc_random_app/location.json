@@ -42,5 +42,93 @@
 		"end_time": "1555214020469",
 		"creator": "Huichen",
 		"description": "get a new hair cut"
+	},
+	{
+		"__id": 5,
+		"location": {
+			"latitude" : 34.039485,
+			"longitude" : -118.257935
+		},
+		"start_time": "1555213920469",
+		"end_time": "1555214020469",
+		"creator": "Amily",
+		"description": "let's party all night"
+	},
+	{
+		"__id": 6,
+		"location": {
+			"latitude" : 34.139285,
+			"longitude" : -118.054935
+		},
+		"start_time": "1555214922469",
+		"end_time": "1555215024469",
+		"creator": "Maria",
+		"description": "study night at a coffee place"
+	},
+	{
+		"__id": 7,
+		"location": {
+			"latitude" : 34.049485,
+			"longitude" : -118.257935
+		},
+		"start_time": "1555214920469",
+		"end_time": "1555215020469",
+		"creator": "John",
+		"description": "go hiking"
+	},
+	{
+		"__id": 8,
+		"location": {
+			"latitude" : 34.039488,
+			"longitude" : -118.257945
+		},
+		"start_time": "1555213930469",
+		"end_time": "1555214024469",
+		"creator": "Tony",
+		"description": "calling for Coachella"
+	},
+	{
+		"__id": 9,
+		"location": {
+			"latitude" : 34.039455,
+			"longitude" : -118.257435
+		},
+		"start_time": "1555213921469",
+		"end_time": "1555214022469",
+		"creator": "Kelly",
+		"description": "Enjoy the sunshine and beach in Santa Monica"
+	},
+	{
+		"__id": 10,
+		"location": {
+			"latitude" : 34.038485,
+			"longitude" : -118.256935
+		},
+		"start_time": "1555213910469",
+		"end_time": "1555214020469",
+		"creator": "Helly",
+		"description": "going to a Hackathon"
+	},
+	{
+		"__id": 11,
+		"location": {
+			"latitude" : 34.029485,
+			"longitude" : -118.257935
+		},
+		"start_time": "1555223920469",
+		"end_time": "1555224020469",
+		"creator": "Richard",
+		"description": "hiking, hiking, going to Griffith"
+	},
+	{
+		"__id": 12,
+		"location": {
+			"latitude" : 34.039475,
+			"longitude" : -118.257935
+		},
+		"start_time": "1555213921469",
+		"end_time": "1555214023469",
+		"creator": "Jack",
+		"description": "let's play card games"
 	}
 ]
