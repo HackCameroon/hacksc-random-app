@@ -44,6 +44,17 @@ exports.Server = class {
                         }
                         );
                     }
+                    if (params.get('keyword')){
+                        filtered_events = filtered_events.filter(event => {
+                            var pattern = params.get('keyword')
+                            if (pattern.match(/\/.*\/|\.|\*|\?|\+/)){ // imprecise query
+                                return event.description.match(eval(pattern))
+                            }
+                            else{
+                                return event.description.match(pattern)
+                            }
+                        })
+                    }
                     if (params.get('distance_delta') && params.get('longitude') && params.get('latitude')){
                         filtered_events = filtered_events.filter((event) => (new geo.Geology()).distanceInKmBetweenEarthCoordinates(
                             eval(event.location.latitude), eval(event.location.longitude), 

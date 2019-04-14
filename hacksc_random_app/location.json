@@ -8,7 +8,7 @@
 		"start_time": "1022324334567",
 		"end_time": "1222324334567",
 		"creator": "Yoga",
-		"descripation": "have fun in yoga"
+		"description": "have fun in yoga"
 	},
 	{
 		"__id": 2,
@@ -19,7 +19,7 @@
 		"start_time": "1565213900150",
 		"end_time": "1965213919150",
 		"creator": "Fan",
-		"descripation": "apartment card game"
+		"description": "apartment card game"
 	},
 	{
 		"__id": 3,
@@ -30,7 +30,7 @@
 		"start_time": "1255213501680",
 		"end_time": "1255213901680",
 		"creator": "Yixuan",
-		"descripation": "part in grand Hope park"
+		"description": "part in grand Hope park"
 	},
 	{
 		"__id": 4,
@@ -41,6 +41,6 @@
 		"start_time": "1555213920469",
 		"end_time": "1555214020469",
 		"creator": "Huichen",
-		"descripation": "get a new hair cut"
+		"description": "get a new hair cut"
 	}
 ]
