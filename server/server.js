@@ -11,7 +11,9 @@ exports.Server = class {
         http.createServer((req, res) => {
             // console.log(req)
 
-            res.writeHead(200, { 'Content-Type': 'application/json' });
+            // res.setHeader("Access-Control-Allow-Origin", "*");
+            res.writeHead(200, { 'Content-Type': 'application/json', "Access-Control-Allow-Origin": "*"});
+            // res.setHeader("Access-Control-Allow-Origin", "*");
 
             
             if (req.method && req.method==='GET'){
@@ -74,7 +76,7 @@ exports.Server = class {
                     body += data
                 })
                 req.on('end', () => {
-                    res.writeHead(200, {'Content-Type': 'text/html'})
+                    // res.writeHead(200, {'Content-Type': 'text/html'})
                     res.end(JSON.stringify({"result":"Some data", "method":req.method, "content": body}))
                 })
                 
