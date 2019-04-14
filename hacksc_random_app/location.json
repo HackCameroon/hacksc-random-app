@@ -16,7 +16,7 @@
 			"latitude" : 34.053464,
 			"longitude" : -118.245557
 		},
-		"start_time": "1565213900150",
+		"start_time": "1005213900150",
 		"end_time": "1965213919150",
 		"creator": "Fan",
 		"description": "apartment card game"
@@ -126,8 +126,8 @@
 			"latitude" : 34.039475,
 			"longitude" : -118.257935
 		},
-		"start_time": "1555213921469",
-		"end_time": "1555214023469",
+		"start_time": "1500213921469",
+		"end_time": "1577214023469",
 		"creator": "Jack",
 		"description": "let's play card games"
 	}

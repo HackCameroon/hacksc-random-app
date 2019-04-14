@@ -30,7 +30,7 @@ exports.Server = class {
                     console.log(params)
                     // console.log(params.get('delta_time'),params.get('latitude'))
                     var filtered_events = events;
-                    if (params.get('delta_time')){
+                    if (params.get('delta_time') && eval(params.get('delta_time'))>=0.0){
                         // var delta_time = params.get('delta_time');
                         // filtered_events.forEach(event => {
                         //     var current_time = new Date().getTime();
@@ -48,16 +48,16 @@ exports.Server = class {
                     }
                     if (params.get('keyword')){
                         filtered_events = filtered_events.filter(event => {
-                            var pattern = params.get('keyword')
+                            var pattern = params.get('keyword').toLowerCase()
                             if (pattern.match(/\/.*\/|\.|\*|\?|\+/)){ // imprecise query
-                                return event.description.match(eval(pattern))
+                                return event.description.toLowerCase().match(eval(pattern))
                             }
                             else{
-                                return event.description.match(pattern)
+                                return event.description.toLowerCase().match(pattern)
                             }
                         })
                     }
-                    if (params.get('distance_delta') && params.get('longitude') && params.get('latitude')){
+                    if (params.get('distance_delta') && params.get('longitude') && params.get('latitude') && eval(params.get('distance_delta'))>0.0){
                         filtered_events = filtered_events.filter((event) => (new geo.Geology()).distanceInKmBetweenEarthCoordinates(
                             eval(event.location.latitude), eval(event.location.longitude), 
                             eval(params.get('latitude')), eval(params.get('longitude')))<= eval(params.get('distance_delta')));

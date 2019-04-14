@@ -9,7 +9,8 @@ import {
   TouchableOpacity,
   View,
   Picker,
-  TextInput
+  TextInput,
+  Button
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import SelectInput from 'react-native-select-input-ios'
@@ -24,26 +25,48 @@ export default class HomeScreen extends React.Component {
    constructor(props) {
     super(props);
 
-    this.state = { isLoading: true, markers: [], timeRange: -1, text: '', selected:'', selectedValue:'', dis: 0};
+    this.state = { isLoading: true, markers: [], delta_time: -1, keyword: '', longitude:-118.255665, latitude:34.040599, distance_delta: 0};
   }
 
   componentDidMount() {
     this.fetchMarkerData();
   }
 
-  fetchMarkerData() {
+  fetchMarkerData=() => {
 
-      fetch("https://raw.githubusercontent.com/HuichenZheng/hacksc-random-app/master/hacksc_random_app/location.json")
-      .then(response => response.json())
-      .then(responseJson => {
-        this.setState({
-          isLoading: false,
-          markers: responseJson
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+      // fetch("https://raw.githubusercontent.com/HuichenZheng/hacksc-random-app/master/hacksc_random_app/location.json")
+      // .then(response => response.json())
+      // .then(responseJson => {
+      //   this.setState({
+      //     isLoading: false,
+      //     markers: responseJson
+      //   });
+      // })
+      // .catch(error => {
+      //   console.log(error);
+      // });
+      const method = "GET";
+      const body = this.state;
+
+      const params = ((params)=>{
+          var attr_list=[]
+          for (var key in params){
+              attr_list.push(key+'='+params[key])
+          }
+          return attr_list.join('&')
+      })(body)
+
+      console.log("Send: ", params)
+      fetch("http://localhost:8080/query_event?" + params)
+        .then(res => res.json())
+        // .then(body => console.log("Receive: ",JSON.stringify(body.count, null, "\t")))
+        .then(responseJson => {
+            this.setState({
+              isLoading: false,
+              markers: responseJson.data
+            });
+            // console.log("Receive :", responseJson)
+          })
   }
 
   renderMarkers() {
@@ -51,8 +74,8 @@ export default class HomeScreen extends React.Component {
       ? null
       : this.state.markers.map((marker, index) => {
           const coords = {
-            latitude: marker.Location.Latitude,
-            longitude: marker.Location.Longitude
+            latitude: marker.location.latitude,
+            longitude: marker.location.longitude
           };
 
           const metadata = `creator: ${marker.creator}`;
@@ -67,12 +90,12 @@ export default class HomeScreen extends React.Component {
           );
         });
   }
-  updateTime = (timeRange) => {
-      this.setState({ timeRange: timeRange })
+  updateTime = (delta_time) => {
+      this.setState({ delta_time: delta_time })
    }
 
   change(d, i) {
-    this.setState({dis: d});
+    this.setState({distance_delta: d});
     // console.log(d);
   }
   getPickerOptions() {
@@ -84,7 +107,7 @@ export default class HomeScreen extends React.Component {
     ]
   }
   render() {
-    const timeOptions = [{ value: -1, label: "please choose a time range"},{ value: 0, label: "currently happening"},{value: 1, label: "within oneday"},{value: 2, label: "within one week"}];
+    const timeOptions = [{ value: -1, label: "please choose a time range"},{ value: 0, label: "currently happening"},{value: 86400000, label: "within oneday"},{value: 86400000*7, label: "within one week"}];
     const disOptions = [{ value: 0, label: "please choose a distance"},{ value: 1, label: "1 km"},{value: 2, label: "2 km"},{value: 5, label: "5 km"},{ value: 10, label: "10 km"}];
     const disData = ["1 km", "2 km", "5 km", "10 km"];
     const data = [{name: 'SanPyaeLin', code: '22'},{name: 'Jhon', code: '1'},{name: 'Marry', code: '2'}];
@@ -107,7 +130,7 @@ export default class HomeScreen extends React.Component {
               <TextInput
                   placeholder=" Please input some Keywords if you want! "
                   style={ styles.input }
-                  onChangeText={(text) => this.setState({text})}
+                  onChangeText={(text) => this.setState({"keyword": text})}
               />
             </View>
             <View style={styles.inputContainerWithMargin}>
@@ -115,25 +138,25 @@ export default class HomeScreen extends React.Component {
               <SelectInput 
                 style={styles.input}
                 
-                value={this.state.timeRange} options={timeOptions}
+                value={this.state.delta_time} options={timeOptions}
                 onSubmitEditing={(val) =>
-                    this.setState({timeRange: val})}
+                    this.setState({delta_time: val})}
               />
             
             </View>
             <View style={styles.inputContainerWithMargin}>
               <SelectInput 
               style={styles.input}
-              value={this.state.dis} options={disOptions} 
-              onSubmitEditing={(d)=>this.setState({dis:d})}
+              value={this.state.distance_delta} options={disOptions} 
+              onSubmitEditing={(d)=>this.setState({distance_delta:d})}
               />
             </View>
             
 
           <View style={styles.button} >
-            <Text style = {styles.buttonText} >
+            <Button title="Search" style = {styles.buttonText} onPress={this.fetchMarkerData}>
               Search
-            </Text>
+            </Button>
           </View>
         </View>
       </View>
