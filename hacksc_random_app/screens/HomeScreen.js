@@ -114,6 +114,7 @@ export default class HomeScreen extends React.Component {
           >
             {this.renderMarkers()}
           </MapView>
+          <View style = {{flexDirection: 'column', width: '90%', top: 40}}>
           <View style={styles.inputContainer}>
             <TextInput
                 placeholder=" Please input some Keywords if you want! "
@@ -123,14 +124,14 @@ export default class HomeScreen extends React.Component {
           </View>
 
 
-          <View style = {{flexDirection: 'row', width: '90%'}}>
+          <View style = {{flexDirection: 'row'}}>
             <View style={styles.inputContainer2 }>
               <SelectInput
                   style={styles.input}
 
-                  value={this.state.timeRange} options={timeOptions}
+                  value={this.state.delta_time} options={timeOptions}
                   onSubmitEditing={(val) =>
-                      this.setState({timeRange: val})}
+                      this.setState({delta_time: val})}
               />
 
             </View>
@@ -138,10 +139,11 @@ export default class HomeScreen extends React.Component {
             <View style={styles.inputContainer2 }>
               <SelectInput
                   style={styles.input}
-                  value={this.state.dis} options={disOptions}
-                  onSubmitEditing={(d)=>this.setState({dis:d})}
+                  value={this.state.distance_delta} options={disOptions}
+                  onSubmitEditing={(d)=>this.setState({distance_delta:d})}
               />
             </View>
+          </View>
           </View>
 
 
@@ -224,10 +226,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     elevation: 1,
     backgroundColor: 'white',
-    width: '90%',
     height: 40,
-    top: 40,
-    borderRadius: 3,
+    borderRadius: 4,
     shadowOpacity: 0.75,
     shadowRadius: 1,
     shadowColor: 'gray',
@@ -239,8 +239,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     width: '50%',
     height: 40,
-    top: 40,
-    borderRadius: 3,
+    borderRadius: 4,
     shadowOpacity: 0.75,
     shadowRadius: 1,
     shadowColor: 'gray',
