@@ -1,3 +1,4 @@
+https://devpost.com/software/eventrio-me
 ## How to run the demo
 
 If you plan to run `Simulator.app` on your Mac for preview, run `open -a Simulator` before starting.
